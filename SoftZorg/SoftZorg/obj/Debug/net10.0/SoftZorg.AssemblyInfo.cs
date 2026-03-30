@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoftZorg")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7caafa02b8786cb66983114357d0bdcf40f71219")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1aafe32217c35162c366017a8afa7bf870f929da")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoftZorg")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoftZorg")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

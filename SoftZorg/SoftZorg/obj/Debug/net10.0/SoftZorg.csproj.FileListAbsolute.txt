@@ -1,0 +1,9 @@
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.csproj.AssemblyReference.cache
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.AssemblyInfoInputs.cache
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.AssemblyInfo.cs
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.csproj.CoreCompileInputs.cache
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.sourcelink.json

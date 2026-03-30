@@ -1,16 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\semch\\OneDrive\\Documenten\\Hackaton\\hackathon-zorg-systeem-backend\\SoftZorg\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Sig10\\OneDrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\sig10\\onedrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\sig10\\onedrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\sig10\\onedrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\sig10\\onedrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "DockedWidth": 193,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -18,6 +47,68 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Sig10\\OneDrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "SoftZorg\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Sig10\\OneDrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "SoftZorg\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwHcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T12:50:34.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Sig10\\OneDrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\appsettings.json",
+              "RelativeDocumentMoniker": "SoftZorg\\appsettings.json",
+              "ToolTip": "C:\\Users\\Sig10\\OneDrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\appsettings.json",
+              "RelativeToolTip": "SoftZorg\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-30T12:28:00.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sig10\\OneDrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Program.cs",
+              "RelativeDocumentMoniker": "SoftZorg\\Program.cs",
+              "ToolTip": "C:\\Users\\Sig10\\OneDrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Program.cs",
+              "RelativeToolTip": "SoftZorg\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T12:25:40.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Sig10\\OneDrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "SoftZorg\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Sig10\\OneDrive\\schooljaar-2023-2027\\hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "SoftZorg\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T12:25:16.679Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 207,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

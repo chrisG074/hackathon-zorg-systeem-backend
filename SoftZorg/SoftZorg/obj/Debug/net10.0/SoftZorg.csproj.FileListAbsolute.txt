@@ -47,7 +47,6 @@ C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-ba
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Microsoft.OpenApi.dll
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
-C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Mono.TextTemplating.dll
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Newtonsoft.Json.dll
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\System.ClientModel.dll
@@ -159,4 +158,14 @@ C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-ba
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.pdb
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\SoftZorg.genruntimeconfig.cache
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\ref\SoftZorg.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Microsoft.Build.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Microsoft.Build.Tasks.Core.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Microsoft.Build.Utilities.Core.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\Microsoft.NET.StringTools.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\System.Formats.Nrbf.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\System.Reflection.MetadataLoadContext.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\System.Resources.Extensions.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\System.Security.Permissions.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\System.Windows.Extensions.dll
+C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\bin\Debug\net10.0\runtimes\win\lib\net9.0\System.Windows.Extensions.dll
 C:\Users\Sig10\OneDrive\schooljaar-2023-2027\hackathon\hackathon-zorg-systeem-backend\SoftZorg\SoftZorg\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

@@ -12,10 +12,9 @@ namespace SoftZorg.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager; // Toegevoegd!
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
 
-        // Constructor geüpdatet
         public AuthController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             _userManager = userManager;
@@ -76,16 +75,12 @@ namespace SoftZorg.Controllers
 
             if (!result.Succeeded)
             {
-                return BadRequest(new { message = "Account aanmaken mislukt. Zorg voor een sterk wachtwoord (hoofdletter, cijfer, speciaal teken)." });
+                // Haal de specifieke Identity fouten op (bijv. "Password requires uppercase")
+                var errors = string.Join(" ", result.Errors.Select(e => e.Description));
+                return BadRequest(new { message = $"Account aanmaken mislukt: {errors}" });
             }
 
-            // CRUCIAAL: Check en maak rollen aan als ze nog niet in de DB staan
-            if (!await _roleManager.RoleExistsAsync("Verpleegkundige"))
-                await _roleManager.CreateAsync(new IdentityRole("Verpleegkundige"));
-
-            if (!await _roleManager.RoleExistsAsync("Admin"))
-                await _roleManager.CreateAsync(new IdentityRole("Admin"));
-
+            // Gebruiker standaard de rol Verpleegkundige geven
             await _userManager.AddToRoleAsync(user, "Verpleegkundige");
 
             return Ok(new { message = "Account succesvol aangemaakt!" });

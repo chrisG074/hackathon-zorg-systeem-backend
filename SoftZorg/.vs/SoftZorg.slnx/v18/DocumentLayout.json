@@ -1,16 +1,49 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\semch\\OneDrive\\Documenten\\Hackaton\\hackathon-zorg-systeem-backend\\SoftZorg\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\emrez\\onedrive\\bureaublad\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\emrez\\onedrive\\bureaublad\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\emrez\\onedrive\\bureaublad\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\softzorg.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\softzorg.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\emrez\\onedrive\\bureaublad\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\emrez\\onedrive\\bureaublad\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\controllers\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\controllers\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|c:\\users\\emrez\\onedrive\\bureaublad\\hackathon\\hackathon-zorg-systeem-backend\\softzorg\\softzorg\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D23057C-BA36-EFCE-13D2-17589CDD37E2}|SoftZorg\\SoftZorg.csproj|solutionrelative:softzorg\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "DockedWidth": 305,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -18,6 +51,93 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SoftZorg",
+              "DocumentMoniker": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\SoftZorg.csproj",
+              "RelativeDocumentMoniker": "SoftZorg\\SoftZorg.csproj",
+              "ToolTip": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\SoftZorg.csproj",
+              "RelativeToolTip": "SoftZorg\\SoftZorg.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-31T09:57:53.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SoftZorg\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SoftZorg\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-31T09:20:32.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\appsettings.json",
+              "RelativeDocumentMoniker": "SoftZorg\\appsettings.json",
+              "ToolTip": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\appsettings.json",
+              "RelativeToolTip": "SoftZorg\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-31T09:19:53.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Program.cs",
+              "RelativeDocumentMoniker": "SoftZorg\\Program.cs",
+              "ToolTip": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Program.cs",
+              "RelativeToolTip": "SoftZorg\\Program.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAqwDMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T08:00:38.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AiController.cs",
+              "DocumentMoniker": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Controllers\\AiController.cs",
+              "RelativeDocumentMoniker": "SoftZorg\\Controllers\\AiController.cs",
+              "ToolTip": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Controllers\\AiController.cs",
+              "RelativeToolTip": "SoftZorg\\Controllers\\AiController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T07:59:10.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "SoftZorg\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\emrez\\OneDrive\\Bureaublad\\Hackathon\\hackathon-zorg-systeem-backend\\SoftZorg\\SoftZorg\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "SoftZorg\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwHUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T07:56:04.096Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 95,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }

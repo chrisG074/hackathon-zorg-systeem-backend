@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "SoftZorg.Controllers.AiController",
+    "Method": "ChatWithAi",
+    "RelativePath": "api/Ai/chat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SoftZorg.Controllers.AiRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SoftZorg.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",

@@ -17,7 +17,6 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddDefaultTokenProviders();
 
 // 3. JWT Authenticatie configureren
-// Dit vertelt de applicatie dat we JWT tokens gebruiken in plaats van cookies om gebruikers te verifiëren
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -27,7 +26,7 @@ builder.Services.AddAuthentication(options =>
 .AddJwtBearer(options =>
 {
     options.SaveToken = true;
-    options.RequireHttpsMetadata = false; // Zet dit in productie op true!
+    options.RequireHttpsMetadata = false; 
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuer = true,
@@ -40,36 +39,42 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// 4. CORS configureren voor de React frontend
+// 4. CORS configureren voor de React frontend (Hackathon-proof)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
         policy =>
         {
-            policy.WithOrigins("http://localhost:5173", "http://localhost:3000") // Voeg hier de URL van je React app toe
+            policy.AllowAnyOrigin() 
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
 });
 
-// 5. Controllers en Swagger toevoegen
+// 5. Controllers en SWAGGER toevoegen
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
+// Deze twee regels zijn nieuw voor Swagger:
+builder.Services.AddEndpointsApiExplorer(); 
+builder.Services.AddSwaggerGen(); 
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    // Activeer de Swagger UI in de browser
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// UITGESCHAKELD: Omdat jullie puur over HTTP willen werken,
+// mag de app je niet automatisch doorsturen naar HTTPS.
+// app.UseHttpsRedirection();
 
-// Activeer CORS voordat we authenticatie toepassen
+// 6. Activeer CORS (Volgorde is cruciaal: dit moet BOVEN Auth staan!)
 app.UseCors("AllowReactApp");
 
-// Authenticatie en Autorisatie activeren (Volgorde is heel belangrijk!)
+// 7. Authenticatie en Autorisatie activeren
 app.UseAuthentication();
 app.UseAuthorization();
 

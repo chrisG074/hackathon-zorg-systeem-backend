@@ -1,15 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using SoftZorg.Models; // Zorg dat deze import bovenaan staat!
 
 namespace SoftZorg.Data
 {
-    // IdentityDbContext verzorgt de tabellen voor Users, Roles en UserRoles
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
+
+        // VOEG DEZE REGEL TOE:
+        public DbSet<Melding> Meldingen { get; set; }
+
+        // Laat de rest van het bestand (bijv. OnModelCreating als je dat hebt) intact
     }
 }

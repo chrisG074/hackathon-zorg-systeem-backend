@@ -50,7 +50,7 @@ namespace SoftZorg.Controllers
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     expiration = token.ValidTo,
-                    roles = userRoles
+                    roles = userRoles // Stuurt de rollen (bijv. ["Verpleegkundige"]) terug naar de frontend
                 });
             }
 
@@ -75,12 +75,12 @@ namespace SoftZorg.Controllers
 
             if (!result.Succeeded)
             {
-                // Haal de specifieke Identity fouten op (bijv. "Password requires uppercase")
                 var errors = string.Join(" ", result.Errors.Select(e => e.Description));
                 return BadRequest(new { message = $"Account aanmaken mislukt: {errors}" });
             }
 
-            // Gebruiker standaard de rol Verpleegkundige geven
+            // Gebruiker krijgt ALTIJD standaard de rol Verpleegkundige. 
+            // De rol 'Admin' kan alleen via SQL worden toegewezen.
             await _userManager.AddToRoleAsync(user, "Verpleegkundige");
 
             return Ok(new { message = "Account succesvol aangemaakt!" });

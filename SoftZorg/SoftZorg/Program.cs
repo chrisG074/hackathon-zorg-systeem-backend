@@ -10,49 +10,74 @@ var builder = WebApplication.CreateBuilder(args);
 // 1. Database & HTTP Client
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 builder.Services.AddHttpClient();
-builder.Services.AddControllers();
 
 // 2. Identity & JWT
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-builder.Services.AddAuthentication(options => {
+// 3. JWT Authenticatie configureren
+builder.Services.AddAuthentication(options =>
+{
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-.AddJwtBearer(options => {
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false; // Zet dit in productie op true!
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuer = true,
         ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
         ValidAudience = builder.Configuration["Jwt:Audience"],
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
     };
 });
 
-// 3. CORS: Laat de React app (5173) praten met de API
-builder.Services.AddCors(options => {
-    options.AddPolicy("AllowReactApp", policy => {
-        policy.WithOrigins("http://localhost:5173", "http://127.0.0.1:5173")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
+// 4. CORS configureren voor de React frontend (Hackathon-proof)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
 });
+
+// 5. Controllers en SWAGGER toevoegen
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// 4. Middleware (GEEN Swagger, GEEN HttpsRedirection)
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    // Activeer de Swagger UI in de browser
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+// UITGESCHAKELD: Omdat jullie puur over HTTP willen werken,
+// mag de app je niet automatisch doorsturen naar HTTPS.
+// app.UseHttpsRedirection();
+
+// 6. Activeer CORS (Volgorde is cruciaal: dit moet BOVEN Auth staan!)
 app.UseCors("AllowReactApp");
 
-// Zorg dat deze regel NIET aanstaat:
-// app.UseHttpsRedirection(); 
-
+// 7. Authenticatie en Autorisatie activeren
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();

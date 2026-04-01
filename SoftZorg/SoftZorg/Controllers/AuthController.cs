@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SoftZorg.Controllers
 {
@@ -86,6 +87,54 @@ namespace SoftZorg.Controllers
             return Ok(new { message = "Account succesvol aangemaakt!" });
         }
 
+        // --- ADMIN ENDPOINTS ---
+        [Authorize(Roles = "Admin")]
+        [HttpGet("users")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = _userManager.Users.ToList();
+            var userList = new List<object>();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                userList.Add(new
+                {
+                    id = user.Id,
+                    email = user.Email,
+                    role = roles.FirstOrDefault() ?? "Geen Rol"
+                });
+            }
+
+            return Ok(userList);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost("users/{userId}/role")]
+        public async Task<IActionResult> UpdateUserRole(string userId, [FromBody] UpdateRoleModel model)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return NotFound(new { message = "Gebruiker niet gevonden." });
+
+            // Ensure the role exists
+            var roleExists = await _roleManager.RoleExistsAsync(model.Role);
+            if (!roleExists)
+            {
+                // Create the role if it somehow doesn't exist in the DB yet
+                await _roleManager.CreateAsync(new IdentityRole(model.Role));
+            }
+
+            // Remove user from all current roles
+            var currentRoles = await _userManager.GetRolesAsync(user);
+            await _userManager.RemoveFromRolesAsync(user, currentRoles);
+
+            // Add to new role
+            await _userManager.AddToRoleAsync(user, model.Role);
+
+            return Ok(new { message = $"Rol succesvol gewijzigd naar {model.Role}!" });
+        }
+
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
@@ -113,4 +162,9 @@ namespace SoftZorg.Controllers
         public required string Email { get; set; }
         public required string Password { get; set; }
     }
+    public class UpdateRoleModel
+    {
+        public required string Role { get; set; }
+    }
 }
+

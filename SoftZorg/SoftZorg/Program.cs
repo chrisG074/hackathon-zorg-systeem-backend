@@ -27,7 +27,8 @@ builder.Services.AddAuthentication(options =>
 .AddJwtBearer(options =>
 {
     options.SaveToken = true;
-    options.RequireHttpsMetadata = false; // Zet dit in productie op true!
+    // Zet RequireHttpsMetadata dynamisch op basis van de omgeving
+    options.RequireHttpsMetadata = !builder.Environment.IsDevelopment();
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuer = true,
@@ -40,13 +41,13 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// 4. CORS configureren voor de React frontend (Hackathon-proof)
+// 4. CORS configureren voor de React frontend (Vercel)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
         policy =>
         {
-            policy.AllowAnyOrigin()
+            policy.AllowAnyOrigin() // Zorgt ervoor dat je Vercel domein erdoor komt
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -59,17 +60,16 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    // Activeer de Swagger UI in de browser
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-// UITGESCHAKELD: Omdat jullie puur over HTTP willen werken,
-// mag de app je niet automatisch doorsturen naar HTTPS.
-// app.UseHttpsRedirection();
+else
+{
+    // Verplicht HTTPS in productieomgevingen (MonsterASP.NET)
+    app.UseHttpsRedirection();
+}
 
 // 6. Activeer CORS (Volgorde is cruciaal: dit moet BOVEN Auth staan!)
 app.UseCors("AllowReactApp");

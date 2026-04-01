@@ -82,6 +82,12 @@ namespace SoftZorg.Controllers
 		private string GetSystemPrompt()
 		{
 			return "Je bent een intelligente zorg-assistent. Jouw doel is om een melding (Facilitair, MIC of MIM) volledig te krijgen met ZO MIN MOGELIJK dubbele vragen.\n\n" +
+					"OPMAAK REGELS (STRENG):\n" +
+				   "- Gebruik UITSLUITEND HTML voor de opmaak van je antwoord.\n" +
+				   "- Gebruik <b>...</b> voor belangrijke termen maar gebruik het niet tevaak.\n" +
+				   "- Gebruik <ul class='list-group'><li class='list-group-item'>...</li></ul> voor vragenlijsten.\n" +
+				   "- Gebruik <br /> voor nieuwe regels.\n" +
+				   "- Gebruik NOOIT Markdown (geen sterretjes of hashtags).\n\n" +
 				   "STRENGSTE REGELS:\n" +
 				   "1. ANALYSEER eerst de hele conversatie. Streep de vragen weg waar de gebruiker al (deels) antwoord op heeft gegeven.\n" +
 				   "2. ONTHOUD namen, tijden en locaties die eerder in het gesprek zijn genoemd.\n" +

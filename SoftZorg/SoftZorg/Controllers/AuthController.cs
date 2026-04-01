@@ -58,37 +58,64 @@ namespace SoftZorg.Controllers
             return Unauthorized(new { message = "E-mailadres of wachtwoord is onjuist." });
         }
 
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterModel model)
-        {
-            var userExists = await _userManager.FindByEmailAsync(model.Email);
-            if (userExists != null)
-                return Conflict(new { message = "Er bestaat al een account met dit e-mailadres." });
+		[HttpPost("register")]
+		public async Task<IActionResult> Register([FromBody] RegisterModel model)
+		{
+			try
+			{
+				// 1. Check of gebruiker al bestaat
+				var userExists = await _userManager.FindByEmailAsync(model.Email);
+				if (userExists != null)
+					return Conflict(new { message = "Er bestaat al een account met dit e-mailadres." });
 
-            IdentityUser user = new()
-            {
-                Email = model.Email,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Email
-            };
+				// 2. Gebruiker aanmaken
+				IdentityUser user = new()
+				{
+					Email = model.Email,
+					SecurityStamp = Guid.NewGuid().ToString(),
+					UserName = model.Email
+				};
 
-            var result = await _userManager.CreateAsync(user, model.Password);
+				var result = await _userManager.CreateAsync(user, model.Password);
 
-            if (!result.Succeeded)
-            {
-                var errors = string.Join(" ", result.Errors.Select(e => e.Description));
-                return BadRequest(new { message = $"Account aanmaken mislukt: {errors}" });
-            }
+				if (!result.Succeeded)
+				{
+					var errors = string.Join(" ", result.Errors.Select(e => e.Description));
+					return BadRequest(new { message = $"Account aanmaken mislukt: {errors}" });
+				}
 
-            // Gebruiker krijgt ALTIJD standaard de rol Verpleegkundige. 
-            // De rol 'Admin' kan alleen via SQL worden toegewezen.
-            await _userManager.AddToRoleAsync(user, "Verpleegkundige");
+				// 3. ROL-CHECK: Cruciaal voor MonsterASP / Productie
+				// Controleer of de rol bestaat, anders crash je op de database-relatie
+				const string defaultRole = "Verpleegkundige";
+				if (!await _roleManager.RoleExistsAsync(defaultRole))
+				{
+					await _roleManager.CreateAsync(new IdentityRole(defaultRole));
+				}
 
-            return Ok(new { message = "Account succesvol aangemaakt!" });
-        }
+				// 4. Rol toewijzen
+				var roleResult = await _userManager.AddToRoleAsync(user, defaultRole);
+				if (!roleResult.Succeeded)
+				{
+					return StatusCode(500, new { message = "Gebruiker is aangemaakt, maar rol toewijzen is mislukt." });
+				}
 
-        // --- ADMIN ENDPOINTS ---
-        [Authorize(Roles = "Admin")]
+				return Ok(new { message = "Account succesvol aangemaakt!" });
+			}
+			catch (Exception ex)
+			{
+				// Dit vangt de ERR_CONNECTION_RESET op en vertelt je WAAROM het gebeurt
+				// Kijk in je browser console naar de 'response' body
+				return StatusCode(500, new
+				{
+					message = "Er is een serverfout opgetreden.",
+					error = ex.Message,
+					inner = ex.InnerException?.Message
+				});
+			}
+		}
+
+		// --- ADMIN ENDPOINTS ---
+		[Authorize(Roles = "Admin")]
         [HttpGet("users")]
         public async Task<IActionResult> GetAllUsers()
         {
@@ -149,7 +176,44 @@ namespace SoftZorg.Controllers
 
             return token;
         }
-    }
+
+		[HttpGet("debug-status")]
+		public async Task<IActionResult> GetDebugStatus()
+		{
+			var debugInfo = new StringBuilder();
+			debugInfo.AppendLine("--- Debug Start ---");
+
+			// 1. Check JWT Config (zonder de geheime sleutel te tonen)
+			debugInfo.AppendLine($"Issuer: {_configuration["Jwt:Issuer"]}");
+			debugInfo.AppendLine($"Audience: {_configuration["Jwt:Audience"]}");
+			debugInfo.AppendLine($"Key Length: {_configuration["Jwt:Key"]?.Length ?? 0} chars");
+
+			// 2. Check Database Verbinding
+			try
+			{
+                _ = _userManager.Users.Take(1).ToList();
+                bool canConnect = true;
+				debugInfo.AppendLine($"Database Verbinding: {(canConnect ? "SUCCESS" : "FAILED")}");
+			}
+			catch (Exception ex)
+			{
+				debugInfo.AppendLine($"Database Verbinding Error: {ex.Message}");
+			}
+
+			// 3. Check of Tabellen bestaan (AspNetUsers is de belangrijkste)
+			try
+			{
+				var userCount = _userManager.Users.Count();
+				debugInfo.AppendLine($"Aantal gebruikers in DB: {userCount}");
+			}
+			catch (Exception ex)
+			{
+				debugInfo.AppendLine($"Tabel Check Error (AspNetUsers): {ex.Message}");
+			}
+
+			return Ok(debugInfo.ToString());
+		}
+	}
 
     public class LoginModel
     {

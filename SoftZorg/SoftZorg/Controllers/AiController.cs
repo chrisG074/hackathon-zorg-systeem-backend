@@ -10,12 +10,12 @@ namespace SoftZorg.Controllers
 	public class AiController : ControllerBase
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
-
-		private readonly string _apiKey = "AIzaSyAl2uC2_HqNPxGmPYIZAmhk9fJEgWfdMgc";
+		private readonly string? _apiKey;
 
 		public AiController(IHttpClientFactory httpClientFactory)
 		{
 			_httpClientFactory = httpClientFactory;
+          _apiKey = Environment.GetEnvironmentVariable("GOOGLEAIKEY");
 		}
 
 		[HttpPost("chat")]
@@ -23,6 +23,9 @@ namespace SoftZorg.Controllers
 		{
 			if (string.IsNullOrEmpty(model.Prompt))
 				return BadRequest(new { message = "Geen tekst ontvangen." });
+
+			if (string.IsNullOrWhiteSpace(_apiKey))
+                return StatusCode(500, new { message = "API key ontbreekt. Zet GOOGLEAIKEY als environment variable." });
 
 			try
 			{
@@ -84,11 +87,34 @@ namespace SoftZorg.Controllers
 				   "2. ONTHOUD namen, tijden en locaties die eerder in het gesprek zijn genoemd.\n" +
 				   "3. STEL ALLEEN de vragen die nog echt ontbreken. Combineer ze in één natuurlijk bericht.\n" +
 				   "4. BEVESTIG wat je al weet (bijv: 'Ik heb genoteerd dat meneer Jan de Vries is gevallen...').\n" +
-				   "5. Als alle informatie er is, geef dan een gestructureerde samenvatting en vraag: 'Klopt dit zo?'\n\n" +
-				   "VRAGENLIJSTEN:\n" +
-				   "- Facilitair: Wat is er kapot? Welke ruimte? Wat is de storing? Spoed of standaard?\n" +
-				   "- MIC: Datum/tijd? Locatie? Welke zorgvrager? Soort incident? Gedrag cliënt? Wat is er gebeurd? Letsel (en waar)? Wie is ingelicht? Hoe te voorkomen?\n" +
-				   "- MIM: Datum/tijd? Locatie? Soort incident? Betrokkenen? Hoe gebeurd? Letsel? Behoefte aan nazorg/vertrouwenspersoon?";
+				   "5. Als alle informatie er is, geef dan een korte samenvatting en vraag: 'Ik heb alle gegevens verzameld. Zal ik de melding voor je klaarzetten?'\n" +
+				   "6. Zodra de gebruiker bevestigt (bijv: 'ja', 'is goed', 'doe maar'), antwoord je ALTIJD met exact het woord [COMPLEET] gevolgd door een JSON object met de verzamelde data.\n\n" +
+				   "VRAGENLIJSTEN & JSON KEYS:\n\n" +
+				   "--- FACILITAIR ---\n" +
+				   "- Wat is er kapot? -> key: 'wat_kapot'\n" +
+				   "- Welke ruimte? -> key: 'ruimte'\n" +
+				   "- Wat is de storing? -> key: 'storing_omschrijving'\n" +
+				   "- Spoed (true) of standaard (false)? -> key: 'is_spoed'\n" +
+				   "JSON formaat: { \"wat_kapot\": \"\", \"ruimte\": \"\", \"storing_omschrijving\": \"\", \"is_spoed\": false }\n\n" +
+				   "--- MIC ---\n" +
+				   "- Datum/tijd? -> key: 'datum_tijd'\n" +
+				   "- Waar? -> key: 'locatie'\n" +
+				   "- Welke zorgvrager? -> key: 'zorgvrager'\n" +
+				   "- Soort incident (kies uit: Medicatie, probleemgedrag, seksueel misbruik, vermissing bewoner, stoot/knel/bots, verbranding, verslikking, inname schadelijke stoffen, beleidsfout, overig)? -> key: 'soort_incident'\n" +
+				   "- Gedrag cliënt? -> key: 'gedrag_client'\n" +
+				   "- Wat is er gebeurd? -> key: 'gebeurtenis'\n" +
+				   "- Letsel en waar? -> key: 'letsel'\n" +
+				   "- Ingelicht & Hoe voorkomen? -> key: 'opvolging'\n" +
+				   "JSON formaat: { \"datum_tijd\": \"\", \"locatie\": \"\", \"zorgvrager\": \"\", \"soort_incident\": \"\", \"gedrag_client\": \"\", \"gebeurtenis\": \"\", \"letsel\": \"\", \"opvolging\": \"\" }\n\n" +
+				   "--- MIM ---\n" +
+				   "- Datum/tijd? -> key: 'datum_tijd'\n" +
+				   "- Waar? -> key: 'locatie'\n" +
+				   "- Soort incident (kies uit: Agressie fysiek, agressie verbaal, gevaarlijke situatie, ongewenst gedrag, overig, psychisch letsel, prik/spat/snij incident, valpartijen)? -> key: 'soort_incident'\n" +
+				   "- Andere mensen betrokken? -> key: 'betrokkenen'\n" +
+				   "- Hoe gebeurd? -> key: 'hoe_gebeurd'\n" +
+				   "- Letsel? -> key: 'letsel'\n" +
+				   "- Behoefte aan opvang (true/false)? -> key: 'behoefte_opvang'\n" +
+				   "JSON formaat: { \"datum_tijd\": \"\", \"locatie\": \"\", \"soort_incident\": \"\", \"betrokkenen\": \"\", \"hoe_gebeurd\": \"\", \"letsel\": \"\", \"behoefte_opvang\": false }";
 		}
 	}
 
